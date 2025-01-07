@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f3f4f6;
+            padding: 20px;
+        }
+
+        .counter-container {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .value {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            button.increment {
+                background-color: #4caf50;
+                color: white;
+            }
+
+                button.increment:hover {
+                    background-color: #45a049;
+                }
+
+            button.decrement {
+                background-color: #f44336;
+                color: white;
+            }
+
+                button.decrement:hover {
+                    background-color: #e53935;
+                }
+
+            button.clear {
+                background-color: #ff9800;
+                color: white;
+            }
+
+                button.clear:hover {
+                    background-color: #fb8c00;
+                }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <h1>Counter</h1>
+        <div class="value" id="counterValue">0</div>
+        <button class="decrement" onclick="decrement()">-</button>
+        <button class="increment" onclick="increment()">+</button>
+        <button class="clear" onclick="clearStorage()">Clear</button>
+    </div>
+
+    <script>
+        let counter = 0;
+
+        // Load the counter value from local storage on page load
+        window.onload = function () {
+            const savedValue = localStorage.getItem('counter');
+            counter = savedValue ? parseInt(savedValue, 10) : counter; // Default to 0 if no value is stored
+            updateCounter();
+        };
+
+        function updateCounter() {
+            document.getElementById('counterValue').textContent = counter;
+            localStorage.setItem('counter', counter); // Save the counter value to local storage
+        }
+
+        function increment() {
+            counter++;
+            updateCounter();
+        }
+
+        function decrement() {
+            if (counter > 0) counter--; // Optional: Prevent negative values
+            updateCounter();
+        }
+
+        function clearStorage() {
+            // Clear local storage and reset the counter to 0
+            localStorage.removeItem('counter');
+            counter = 256;
+            updateCounter();
+        }
+    </script>
+</body>
+</html>
