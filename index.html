@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
+    <title>Multi-Counter</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,7 @@
             border-radius: 10px;
             background: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
         }
 
         .value {
@@ -66,44 +67,66 @@
 </head>
 <body>
     <div class="counter-container">
-        <h1>Counter</h1>
-        <div class="value" id="counterValue">0</div>
-        <button class="decrement" onclick="decrement()">-</button>
-        <button class="increment" onclick="increment()">+</button>
-        <button class="clear" onclick="clearStorage()">Clear</button>
+        <h1>Algebra - 227</h1>
+        <div class="value" id="counterValue1">0</div>
+        <button class="decrement" onclick="decrement('counter1')">-</button>
+        <button class="increment" onclick="increment('counter1')">+</button>
+        <button class="clear" onclick="clearStorage('counter1')">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>Trigonometry - 223</h1>
+        <div class="value" id="counterValue2">0</div>
+        <button class="decrement" onclick="decrement('counter2')">-</button>
+        <button class="increment" onclick="increment('counter2')">+</button>
+        <button class="clear" onclick="clearStorage('counter2')">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>Percentage - 174</h1>
+        <div class="value" id="counterValue3">0</div>
+        <button class="decrement" onclick="decrement('counter3')">-</button>
+        <button class="increment" onclick="increment('counter3')">+</button>
+        <button class="clear" onclick="clearStorage('counter3')">Clear</button>
     </div>
 
     <script>
-        let counter = 0;
-
-        // Load the counter value from local storage on page load
-        window.onload = function () {
-            const savedValue = localStorage.getItem('counter');
-            counter = savedValue ? parseInt(savedValue, 10) : counter; // Default to 0 if no value is stored
-            updateCounter();
-        };
-
-        function updateCounter() {
-            document.getElementById('counterValue').textContent = counter;
-            localStorage.setItem('counter', counter); // Save the counter value to local storage
+        function loadCounter(id) {
+            const savedValue = localStorage.getItem(id);
+            return savedValue ? parseInt(savedValue, 10) : 0;
         }
 
-        function increment() {
+        function updateCounter(id, value) {
+            document.getElementById(`counterValue${id}`).textContent = value;
+            localStorage.setItem(`counter${id}`, value);
+        }
+
+        function increment(counterId) {
+            let counter = loadCounter(counterId);
             counter++;
-            updateCounter();
+            updateCounter(counterId[counterId.length - 1], counter);
         }
 
-        function decrement() {
-            if (counter > 0) counter--; // Optional: Prevent negative values
-            updateCounter();
+        function decrement(counterId) {
+            let counter = loadCounter(counterId);
+            if (counter > 0) {
+                counter--;
+            }
+            updateCounter(counterId[counterId.length - 1], counter);
         }
 
-        function clearStorage() {
-            // Clear local storage and reset the counter to 0
-            localStorage.removeItem('counter');
-            counter = 256;
-            updateCounter();
+        function clearStorage(counterId) {
+            localStorage.removeItem(counterId);
+            updateCounter(counterId[counterId.length - 1], 0);
         }
+
+        window.onload = function () {
+            for (let i = 1; i <= 5; i++) {
+                const counterId = `counter${i}`;
+                const counterValue = loadCounter(counterId);
+                updateCounter(i, counterValue);
+            }
+        };
     </script>
 </body>
 </html>
