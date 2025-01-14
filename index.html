@@ -127,15 +127,49 @@
             border-width: 0 0 3px 3px;
             transform: rotate(-45deg);
         }
+
+        .btn {
+            background-color: #007bff; /* Blue background */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Add padding for size */
+            font-size: 16px; /* Adjust font size */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .btn:hover {
+                background-color: #0056b3; /* Darker blue on hover */
+            }
+
+        .btn:active {
+                background-color: #003f7f; /* Even darker blue when pressed */
+            }
     </style>
 </head>
 <body>
     <hr />
     <p style="text-align:center;font:bold">Advance Maths</p>
+    <button id="toggleButton" class="btn">Show Div</button>
     <hr />
-
-    <div class="counter-container">
+    <div class="counter-container" id="show-div">
         <h1>NS(C-1/2) - 509</h1>
+        <h1>Decimal - 1 Lec <div class="circle-button-grn"></div></h1>
+        <h1>Digital Sum - 3 Lec <div class="circle-button-grn"></div></h1>
+        <h1>NODigit - 1 Lec <div class="circle-button-grn"></div></h1>
+        <h1>CONum - 4 Lec <div class="circle-button"></div></h1>
+        <h1>Divisibilty - 5 Lec <div class="circle-button"></div></h1>
+        <h1>AP GP - 2 Lec <div class="circle-button-grn"></div></h1>
+        <h1>RTheorem - 4 Lec <div class="circle-button-grn"></div></h1>
+        <h1>Unit Digit - 2 Lec <div class="circle-button"></div></h1>
+        <h1>Factors - 3 Lec <div class="circle-button"></div></h1>
+        <h1>PSI - 5 Lec <div class="circle-button"></div></h1>
+        <h1>Fraction - 2 Lec <div class="circle-button-grn"></div></h1>
+        <h1>Bodmas - 1 Lec <div class="circle-button-grn"></div></h1>
+        <h1>Series - 2 Lec <div class="circle-button"></div></h1>
+        <h1>C&D - 1 Lec <div class="circle-button-grn"></div></h1>
+
         <div class="value" id="counterValue1">0</div>
         <button class="decrement" onclick="decrement(1)">-</button>
         <button class="increment" onclick="increment(1)">+</button>
@@ -176,7 +210,7 @@
     </div>
 
     <div class="counter-container">
-        <h1>Co Geometry - 25</h1>
+        <h1>Co Geo - 9 Lec <div class="circle-button"></div></h1>
         <div class="value" id="counterValue6">0</div>
         <button class="decrement" onclick="decrement(6)">-</button>
         <button class="increment" onclick="increment(6)">+</button>
@@ -216,7 +250,7 @@
     </div>
 
     <div class="counter-container">
-        <h1>Probability - 5 lec</h1>
+        <h1>Probability - 5 lec <div class="circle-button"></div></h1>
         <div class="value" id="counterValue11">0</div>
         <button class="decrement" onclick="decrement(11)">-</button>
         <button class="increment" onclick="increment(11)">+</button>
@@ -224,7 +258,7 @@
     </div>
 
     <div class="counter-container">
-        <h1>Logarithm - 2 lec</h1>
+        <h1>Logarithm - 2 lec <div class="circle-button"></div></h1>
         <div class="value" id="counterValue12">0</div>
         <button class="decrement" onclick="decrement(12)">-</button>
         <button class="increment" onclick="increment(12)">+</button>
@@ -252,6 +286,18 @@
     </div>
 
     <script>
+
+        const button = document.getElementById('toggleButton');
+        const div = document.getElementById('show-div');
+
+        button.addEventListener('click', () => {
+            if (div.style.display === 'none') {
+                div.style.display = 'block';
+            } else {
+                div.style.display = 'none';
+            }
+        });
+
         function loadCounter(id) {
             const savedValue = localStorage.getItem(`counter${id}`);
             return savedValue ? parseInt(savedValue, 10) : 0;
