@@ -118,15 +118,15 @@
             cursor: pointer;
         }
 
-        .circle-button-grn::before {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 6px;
-            border: solid white;
-            border-width: 0 0 3px 3px;
-            transform: rotate(-45deg);
-        }
+            .circle-button-grn::before {
+                content: '';
+                position: absolute;
+                width: 12px;
+                height: 6px;
+                border: solid white;
+                border-width: 0 0 3px 3px;
+                transform: rotate(-45deg);
+            }
 
         .btn {
             background-color: #007bff; /* Blue background */
@@ -139,11 +139,11 @@
             transition: background-color 0.3s ease; /* Smooth hover effect */
         }
 
-        .btn:hover {
+            .btn:hover {
                 background-color: #0056b3; /* Darker blue on hover */
             }
 
-        .btn:active {
+            .btn:active {
                 background-color: #003f7f; /* Even darker blue when pressed */
             }
     </style>
@@ -153,7 +153,7 @@
     <p style="text-align:center;font:bold">Advance Maths</p>
     <button id="toggleButton" class="btn">Show Number Sys</button>
     <hr />
-    <div class="counter-container" id="show-div">
+    <div class="counter-container" id="show-div" style="display:none;">
         <h1>NS(C-1/2) - 509</h1>
         <h1>Decimal - 1 Lec <div class="circle-button-grn"></div></h1>
         <h1>Digital Sum - 3 Lec <div class="circle-button-grn"></div></h1>
@@ -270,7 +270,7 @@
     <hr />
 
     <div class="counter-container">
-        <h1>Percentage - 174</h1>
+        <h1>Per(%) - 13 lec (174)</h1>
         <div class="value" id="counterValue13">0</div>
         <button class="decrement" onclick="decrement(13)">-</button>
         <button class="increment" onclick="increment(13)">+</button>
@@ -278,7 +278,71 @@
     </div>
 
     <div class="counter-container">
-        <h1>HCF and LCM - 70 <div class="circle-button-grn"></div></h1>
+        <h1>HCF & LCM - 6 lec (70) <div class="circle-button-grn"></div></h1>
+        <div class="value" id="counterValue14">0</div>
+        <button class="decrement" onclick="decrement(14)">-</button>
+        <button class="increment" onclick="increment(14)">+</button>
+        <button class="clear" onclick="clearStorage(14)">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>CI - 6 Lec</h1>
+        <div class="value" id="counterValue14">0</div>
+        <button class="decrement" onclick="decrement(14)">-</button>
+        <button class="increment" onclick="increment(14)">+</button>
+        <button class="clear" onclick="clearStorage(14)">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>SI - 5 Lec</h1>
+        <div class="value" id="counterValue14">0</div>
+        <button class="decrement" onclick="decrement(14)">-</button>
+        <button class="increment" onclick="increment(14)">+</button>
+        <button class="clear" onclick="clearStorage(14)">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>P&L - 7 Lec</h1>
+        <div class="value" id="counterValue14">0</div>
+        <button class="decrement" onclick="decrement(14)">-</button>
+        <button class="increment" onclick="increment(14)">+</button>
+        <button class="clear" onclick="clearStorage(14)">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>RatioProp - 7 Lec</h1>
+        <div class="value" id="counterValue14">0</div>
+        <button class="decrement" onclick="decrement(14)">-</button>
+        <button class="increment" onclick="increment(14)">+</button>
+        <button class="clear" onclick="clearStorage(14)">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>MixAlleg - 5 Lec</h1>
+        <div class="value" id="counterValue14">0</div>
+        <button class="decrement" onclick="decrement(14)">-</button>
+        <button class="increment" onclick="increment(14)">+</button>
+        <button class="clear" onclick="clearStorage(14)">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>Avg - 6 Lec</h1>
+        <div class="value" id="counterValue14">0</div>
+        <button class="decrement" onclick="decrement(14)">-</button>
+        <button class="increment" onclick="increment(14)">+</button>
+        <button class="clear" onclick="clearStorage(14)">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>T&Work - 9 Lec</h1>
+        <div class="value" id="counterValue14">0</div>
+        <button class="decrement" onclick="decrement(14)">-</button>
+        <button class="increment" onclick="increment(14)">+</button>
+        <button class="clear" onclick="clearStorage(14)">Clear</button>
+    </div>
+
+    <div class="counter-container">
+        <h1>TSD - 12 Lec</h1>
         <div class="value" id="counterValue14">0</div>
         <button class="decrement" onclick="decrement(14)">-</button>
         <button class="increment" onclick="increment(14)">+</button>
