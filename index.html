@@ -103,6 +103,30 @@
             .circle-button::after {
                 transform: rotate(-45deg);
             }
+
+        .circle-button-grn {
+            margin-left: 10px; /* Space between text and cross */
+            position: relative;
+            width: 30px;
+            height: 30px;
+            background-color: green;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .circle-button-grn::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 6px;
+            border: solid white;
+            border-width: 0 0 3px 3px;
+            transform: rotate(-45deg);
+        }
     </style>
 </head>
 <body>
@@ -127,7 +151,7 @@
     </div>
 
     <div class="counter-container">
-        <h1>Trigo - 198</h1>
+        <h1>Trigo - 198 <div class="circle-button-grn"></div></h1>
         <h1>Max/Min - 32 <div class="circle-button"></div></h1>
         <div class="value" id="counterValue3">0</div>
         <button class="decrement" onclick="decrement(3)">-</button>
@@ -220,7 +244,7 @@
     </div>
 
     <div class="counter-container">
-        <h1>HCF and LCM - 70</h1>
+        <h1>HCF and LCM - 70 <div class="circle-button-grn"></div></h1>
         <div class="value" id="counterValue14">0</div>
         <button class="decrement" onclick="decrement(14)">-</button>
         <button class="increment" onclick="increment(14)">+</button>
