@@ -63,6 +63,46 @@
                 button.clear:hover {
                     background-color: #fb8c00;
                 }
+
+        h1 {
+            display: flex;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .circle-button {
+            margin-left: 10px; /* Space between text and cross */
+            position: relative;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+            .circle-button::before,
+            .circle-button::after {
+                content: '';
+                position: absolute;
+                background-color: white;
+                width: 60%;
+                height: 3px;
+                border-radius: 2px;
+            }
+
+            .circle-button::before {
+                transform: rotate(45deg);
+            }
+
+            .circle-button::after {
+                transform: rotate(-45deg);
+            }
     </style>
 </head>
 <body>
@@ -88,6 +128,7 @@
 
     <div class="counter-container">
         <h1>Trigo - 198</h1>
+        <h1>Max/Min - 42 <div class="circle-button"></div></h1>
         <div class="value" id="counterValue3">0</div>
         <button class="decrement" onclick="decrement(3)">-</button>
         <button class="increment" onclick="increment(3)">+</button>
