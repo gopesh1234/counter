@@ -150,7 +150,12 @@
 </head>
 <body>
     <hr />
-    <p style="text-align:center;font:bold">Advance Maths : Total Lec: 25/128</p>
+    <p style="text-align:center;font:bold">
+        Advance Maths:
+        <span id="advanceMathsValue">25</span>/128
+        <button class="increment" onclick="incrementAdvanceMaths()">+</button>
+        <button class="decrement" onclick="decrementAdvanceMaths()">-</button>
+    </p>
     <button id="toggleButton" class="btn">Show Number Sys</button>
     <hr />
     <div class="counter-container" id="show-div" style="display:none;">
@@ -267,7 +272,12 @@
     </div>
 
     <hr />
-    <p style="text-align:center;font:bold">Arithmetic Maths : Total Lec: 6/79</p>
+    <p style="text-align:center;font:bold">
+        Arithmetic Maths:
+        <span id="arithmeticMathsValue">6</span>/79
+        <button class="increment" onclick="incrementArithmeticMaths()">+</button>
+        <button class="decrement" onclick="decrementArithmeticMaths()">-</button>
+    </p>
     <hr />
 
     <div class="counter-container">
@@ -405,7 +415,66 @@
             updateCounter(counterId, 0);
         }
 
+        function loadAdvanceMaths() {
+            const savedValue = localStorage.getItem('advanceMaths');
+            return savedValue ? parseInt(savedValue, 10) : 25; // Default value is 25
+        }
+
+        function loadArithmeticMaths() {
+            const savedValue = localStorage.getItem('arithmeticMaths');
+            return savedValue ? parseInt(savedValue, 10) : 6; // Default value is 6
+        }
+
+        function updateAdvanceMaths(value) {
+            document.getElementById('advanceMathsValue').textContent = value;
+            localStorage.setItem('advanceMaths', value);
+        }
+
+        function updateArithmeticMaths(value) {
+            document.getElementById('arithmeticMathsValue').textContent = value;
+            localStorage.setItem('arithmeticMaths', value);
+        }
+
+        function incrementAdvanceMaths() {
+            let currentValue = loadAdvanceMaths();
+            if (currentValue < 128) { // Ensure it doesn't exceed 128
+                currentValue++;
+            }
+            updateAdvanceMaths(currentValue);
+        }
+
+        function incrementArithmeticMaths() {
+            let currentValue = loadArithmeticMaths();
+            if (currentValue < 79) { // Ensure it doesn't exceed 79
+                currentValue++;
+            }
+            updateArithmeticMaths(currentValue);
+        }
+
+        function decrementAdvanceMaths() {
+            let currentValue = loadAdvanceMaths();
+            if (currentValue > 0) { // Prevent going below 0
+                currentValue--;
+            }
+            updateAdvanceMaths(currentValue);
+        }
+
+        function decrementArithmeticMaths() {
+            let currentValue = loadArithmeticMaths();
+            if (currentValue > 0) { // Prevent going below 0
+                currentValue--;
+            }
+            updateArithmeticMaths(currentValue);
+        }
+
         window.onload = function () {
+
+            const counterValueAdv = loadAdvanceMaths();
+            const counterValueArith = loadArithmeticMaths();
+
+            updateAdvanceMaths(counterValueAdv);
+            updateArithmeticMaths(counterValueArith);
+
             for (let i = 1; i <= 23; i++) {
                 const counterValue = loadCounter(i);
                 updateCounter(i, counterValue);
